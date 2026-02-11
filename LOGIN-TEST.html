@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login Test</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Login System Test</h1>
+    <button class="btn" onclick="testLogin()">TEST: Open Login Modal</button>
+    <p id="status">Status will appear here...</p>
+
+    <div id="loginModal" class="modal hidden">
+        <div class="modal-content">
+            <h2>Login Test Modal</h2>
+            <p>If you see this, the modal is working!</p>
+            <button class="btn" onclick="closeModal()">Close</button>
+        </div>
+    </div>
+
+    <script src="ajjewels.js"></script>
+    <script src="login-checkout.js"></script>
+    <script>
+        function testLogin() {
+            console.log("testLogin() called");
+            const modal = document.getElementById('loginModal');
+            console.log("Modal element:", modal);
+            
+            if (modal) {
+                modal.classList.remove('hidden');
+                document.getElementById('status').textContent = "✅ Modal should be visible now!";
+                console.log("Modal classes:", modal.className);
+            } else {
+                document.getElementById('status').textContent = "❌ Modal not found!";
+            }
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('loginModal');
+            if (modal) {
+                modal.classList.add('hidden');
+            }
+        }
+
+        // Test on load
+        console.log("Page loaded");
+        document.getElementById('status').textContent = "Page loaded successfully. Click TEST button above.";
+    </script>
+</body>
+</html>
